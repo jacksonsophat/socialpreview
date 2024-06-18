@@ -24,20 +24,3 @@ export async function getURLInfomation(url: string) {
     return { success: false, error: err.message }; // Handle unexpected errors
   }
 }
-
-// export async function getURLInfomation(url: string) {
-//   const ogs = require("open-graph-scraper");
-//   const options = { url: url };
-
-//   ogs(options).then((data) => {
-//     const { error, html, result, response } = data;
-//     // console.log("error:", error); // This returns true or false. True if there was an error. The error itself is inside the result object.
-//     // // console.log("html:", html); // This contains the HTML of page
-//     // console.log("result:", result); // This contains all of the Open Graph results
-//     // console.log("response:", response); // This contains response from the Fetch API
-//   });
-//   console.log("options", options);
-//   //   return;
-//   console.log("data", data);
-//   return { success: true };
-// }
