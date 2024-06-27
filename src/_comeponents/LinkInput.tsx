@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { getURLInfomation } from "@/api/actions";
+import { getURLInformation } from "@/actions/actions";
 import { useState } from "react";
 
 import {
@@ -42,7 +42,7 @@ type SocialDataType = {
 };
 
 const formSchema = z.object({
-  url: z.string().url().min(1, {
+  url: z.string().regex(/^https:/, "URL must start with https").url().min(1, {
     message: "URL cannot be empty.",
   }),
 });
@@ -67,7 +67,7 @@ function LinkInput() {
     setError(null); // Clear previous errors
 
     try {
-      const data = await getURLInfomation(values.url);
+      const data = await getURLInformation(values.url);
 
       const shortOgUrl = getHostname(data?.ogUrl);
 
@@ -127,7 +127,7 @@ function LinkInput() {
                     <Input placeholder="URL" {...field} />
                   </FormControl>
                   <FormDescription>
-                    Place your full URL including http/https.
+                    Place your full URL including https (Must start with https).
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -158,7 +158,7 @@ function LinkInput() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div>
+              <div className="max-w-[466px]">
                 <div className="aspect-video w-full">
                   {ogData?.imageUrl ? (
                     <img src={ogData?.imageUrl} />
@@ -237,7 +237,7 @@ function LinkInput() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="w-[516px] max-w-full">
+              <div className="w-[512px] max-w-full">
                 <div className="relative">
                   <div className="aspect-video rounded-[16px] overflow-hidden">
                     {twitterData?.imageUrl ? (
