@@ -2,10 +2,14 @@ import { getURLInformation } from "@/actions/actions";
 import { NextResponse } from "next/server";
 
 const GET = async (req: Request) => {
-    const url = req.url.split('api/social/')[1];
-    const originalUrl = decodeURIComponent(url);
 
-    console.log('url', url);
+    // Extract the URL search parameters from the request
+    const url = new URL(req.url);
+    // Get the value of the "url" query parameter
+    const urlParam = url.searchParams.get('url');
+    const originalUrl = decodeURIComponent(urlParam as string);
+
+    console.log('originalUrl', originalUrl);
     // Check if originalUrl is a valid URL and starts with https://
     let isValidUrl = originalUrl.startsWith('https');
     try {
@@ -29,6 +33,8 @@ const GET = async (req: Request) => {
     // let data = 
 
     return NextResponse.json({ data: originalUrl, status: 200, message: 'Success' })
+
+
 }
 
 
