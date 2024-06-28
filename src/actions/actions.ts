@@ -32,9 +32,10 @@ export async function getURLInformation(url: string) {
         // Process or return the desired data from 'result'
         return result; // Assuming 'result' contains the desired information
     } catch (err) {
+        // @ts-ignore
+        // error("Unexpected error:", err);
+        console.log('err', err);
         //@ts-ignore
-        error("Unexpected error:", err);
-        //@ts-ignore
-        return { success: false, error: err.message }; // Handle unexpected errors
+        return { success: false, error: err.err }; // Handle unexpected errors
     }
 }
