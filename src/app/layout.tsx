@@ -17,7 +17,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Social Media Preview",
+  title: "Social Preview",
   description:
     "See how your links will look before you share them on social media. Get the perfect preview every time.",
 };
@@ -39,17 +39,21 @@ export default function RootLayout({
         <meta property="og:description" content="See how your links will look before you share them on social media. Get the perfect preview every time." />
         {/* <meta property="og:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" /> */}
 
-        <meta property="og:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" />
-        <meta property="og:image:type" content="jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="675" />
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jacksonsophat" />
         <meta name="twitter:title" content="Social Preview" />
         <meta name="twitter:description" content="See how your links will look before you share them on social media. Get the perfect preview every time." />
-        <meta name="twitter:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" />
+        {/* <meta name="twitter:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" /> */}
+        <meta name="twitter:image" content="<generated>" />
+        <meta name="twitter:image:type" content="<generated>" />
+        <meta name="twitter:image:width" content="<generated>" />
+        <meta name="twitter:image:height" content="<generated>" />
 
       </Head>
       <body
