@@ -8,6 +8,8 @@ import { Toaster } from "sonner";
 // const inter = Inter({ subsets: ["latin"] });
 
 // export const runtime = "edge";
+// export const runtime = "edge";
+
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -19,6 +21,9 @@ export const metadata: Metadata = {
   description:
     "See how your links will look before you share them on social media. Get the perfect preview every time.",
 };
+
+
+
 
 export default function RootLayout({
   children,
@@ -32,14 +37,14 @@ export default function RootLayout({
         {/* Opengraph */}
         <meta property="og:title" content="Social Preview" />
         <meta property="og:description" content="See how your links will look before you share them on social media. Get the perfect preview every time." />
-        <meta property="og:image" content="/images/meta-image.jpg" />
+        <meta property="og:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@jacksonsophat" />
         <meta name="twitter:title" content="Social Preview" />
         <meta name="twitter:description" content="See how your links will look before you share them on social media. Get the perfect preview every time." />
-        <meta name="twitter:image" content="/images/meta-image.jpg" />
+        <meta name="twitter:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" />
 
       </Head>
       <body
@@ -48,6 +53,8 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+
+        {/* <img src="/images/meta-image.jpg" alt="" /> */}
         {children}
         <Toaster />
       </body>
