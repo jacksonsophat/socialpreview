@@ -37,7 +37,12 @@ export default function RootLayout({
         {/* Opengraph */}
         <meta property="og:title" content="Social Preview" />
         <meta property="og:description" content="See how your links will look before you share them on social media. Get the perfect preview every time." />
+        {/* <meta property="og:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" /> */}
+
         <meta property="og:image" content="https://socialpreview.jacksonsophat.com/images/meta-image.jpg" />
+        <meta property="og:image:type" content="jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="675" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
