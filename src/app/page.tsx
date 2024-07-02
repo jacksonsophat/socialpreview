@@ -1,5 +1,5 @@
-import Faqs from "@/_comeponents/Faqs";
-import LinkInput from "@/_comeponents/LinkInput";
+import Faqs from "@/_components/Faqs";
+import LinkInput from "@/_components/LinkInput";
 import { ScanEye } from "lucide-react";
 
 
