@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { getURLInformation } from "@/actions/actions";
 import { useState } from "react";
-
+import { usePostHog } from 'posthog-js/react'
 import {
   Card,
   CardContent,
@@ -55,7 +55,7 @@ function LinkInput() {
   const [ogData, setOgData] = useState<SocialDataType>();
   const [twitterData, setTwitterData] = useState<SocialDataType>();
   const [isLoading, setIsLoading] = useState<Boolean>(false);
-
+  const posthog = usePostHog()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,6 +64,7 @@ function LinkInput() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    posthog.capture('preview_submitted')
     setIsLoading(true);
     setFetching(true); // Set fetching state
     setError(null); // Clear previous errors

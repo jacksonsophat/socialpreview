@@ -1,8 +1,10 @@
 import { getURLInformation } from "@/actions/actions";
 import { NextResponse } from "next/server";
+import { usePostHog } from "posthog-js/react";
 
 const GET = async (req: Request) => {
-
+    const posthog = usePostHog()
+    posthog.capture('api_called')
     // Extract the URL search parameters from the request
     const url = new URL(req.url);
     // Get the value of the "url" query parameter
