@@ -11,7 +11,7 @@ const GET = async (req: Request) => {
     const urlParam = url.searchParams.get('url');
     const originalUrl = decodeURIComponent(urlParam as string);
 
-    console.log('originalUrl', originalUrl);
+    // console.log('originalUrl', originalUrl);
     // Check if originalUrl is a valid URL and starts with https://
     let isValidUrl = originalUrl.startsWith('https');
     try {
