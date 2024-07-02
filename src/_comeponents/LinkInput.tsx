@@ -86,7 +86,8 @@ function LinkInput() {
       const twitterDataResult = {
         title: data?.twitterTitle || "You're missing a title",
         url: shortOgUrl || "",
-        imageUrl: data.twitterImage ? data.twitterImage[0].url || "" : "",
+        // imageUrl: data.twitterImage ? data.twitterImage[0].url || "" : "",
+        imageUrl: data.twitterImage ? data.twitterImage[0].url || "" : (data.ogImage ? data.ogImage[0].url || "" : ""),
         metaDescription:
           data?.ogDescription || "You're missing a meta description.",
       };
@@ -179,9 +180,9 @@ function LinkInput() {
               </CardHeader>
               <CardContent>
                 <div className="max-w-[466px] border">
-                  <div className="aspect-video w-full">
+                  <div className="aspect-video w-full bg-white">
                     {ogData?.imageUrl ? (
-                      <img src={ogData?.imageUrl} />
+                      <img className="w-full object-cover aspect-video" src={ogData?.imageUrl} />
                     ) : (
                       <div className="flex justify-center items-center h-full">
                         <div className="flex flex-col justify-center items-center">
@@ -219,9 +220,9 @@ function LinkInput() {
               </CardHeader>
               <CardContent>
                 <div className="py-[12px] px-[16px] flex bg-[#edf3f8] border">
-                  <div className="aspect-video w-[128px] mr-2 rounded-[0.8rem]">
+                  <div className="aspect-video w-[128px] mr-2 rounded-[0.8rem] bg-white">
                     {ogData?.imageUrl ? (
-                      <img src={ogData?.imageUrl} />
+                      <img className="w-full object-cover aspect-video rounded-[0.8rem]" src={ogData?.imageUrl} />
                     ) : (
                       <div className="flex justify-center items-center h-full">
                         <div className="flex flex-col justify-center items-center">
@@ -258,9 +259,9 @@ function LinkInput() {
               <CardContent>
                 <div className="w-[512px] max-w-full">
                   <div className="relative">
-                    <div className="aspect-video rounded-[16px] overflow-hidden">
+                    <div className="aspect-video rounded-[16px] overflow-hidden bg-white">
                       {twitterData?.imageUrl ? (
-                        <img src={twitterData?.imageUrl} />
+                        <img className="w-full object-cover aspect-video" src={twitterData?.imageUrl} />
                       ) : (
                         <div className="flex justify-center items-center h-full">
                           <div className="flex flex-col justify-center items-center">

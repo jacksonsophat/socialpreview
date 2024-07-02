@@ -1,3 +1,4 @@
+import Faqs from "@/_comeponents/Faqs";
 import LinkInput from "@/_comeponents/LinkInput";
 import { ScanEye } from "lucide-react";
 
@@ -11,6 +12,7 @@ export default async function Home() {
         <ScanEye className="mr-2" size={28} /> Social Preview
       </h1>
       <LinkInput />
+      <Faqs />
     </main>
   );
 }
