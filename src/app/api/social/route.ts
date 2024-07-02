@@ -1,10 +1,21 @@
 import { getURLInformation } from "@/actions/actions";
 import { NextResponse } from "next/server";
-import { usePostHog } from "posthog-js/react";
+import { PostHog } from 'posthog-node'
+
+
+const posthog = new PostHog(
+    process.env.NEXT_PUBLIC_POSTHOG_KEY!,
+    { host: process.env.NEXT_PUBLIC_POSTHOG_HOST }
+)
+
 
 const GET = async (req: Request) => {
-    const posthog = usePostHog()
-    posthog.capture('api_called')
+    posthog.capture({
+        distinctId: 'api_called_from_chrome_extension',
+        event: 'api_called'
+    });
+    // const posthog = usePostHog()
+    // posthog?.capture('api_called')
     // Extract the URL search parameters from the request
     const url = new URL(req.url);
     // Get the value of the "url" query parameter
