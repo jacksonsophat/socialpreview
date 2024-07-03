@@ -25,6 +25,10 @@ function Faqs() {
         {
             question: 'I changed the meta tags, but the preview still isn\'t right.',
             answer: 'Social media platforms cache link previews, so it might take some time for the changes to reflect.'
+        },
+        {
+            question: 'Do you have a Chrome extension?',
+            answer: 'Yes, we have a Chrome extension. You can download it from the Chrome Web Store.'
         }
     ]
     return (

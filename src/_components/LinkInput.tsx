@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { set, string, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -144,7 +144,7 @@ function LinkInput() {
                 </FormItem>
               )}
             />
-            <div className={cn("flex justify-end !mt-0")}>
+            <div className={cn("flex justify-end !mt-4")}>
               {isLoading && (
                 <Button type="submit">
                   <LoaderCircle className="animate-spin mr-2" />
@@ -254,7 +254,8 @@ function LinkInput() {
             <Card>
               <CardHeader>
                 <CardTitle className={cn("flex")}>
-                  <Twitter className="mr-2" />X (Formally Twitter)
+                  {/* <Twitter className="mr-2" /> */}
+                  X (Formally Twitter)
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -284,6 +285,82 @@ function LinkInput() {
               </CardContent>
             </Card>
           </section>
+          {/* Discord */}
+          <section>
+            <Card>
+              <CardHeader>
+                <CardTitle className={cn("flex")}>
+                  {/* <Facebook className="mr-2" /> */}
+                  Discord
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="max-w-[428px] rounded-sm overflow-hidden bg-[#2b2d31] px-4 py-4 border">
+                  <div>
+                    <div className="mt-[3px] truncate pt-[2px] text-[16px] font-semibold leading-[20px] text-[#00b0f4]">
+                      {ogData?.title}
+                    </div>
+                    <div className="text-gray-200 text-sm my-4">
+                      {ogData?.metaDescription}
+                    </div>
+                  </div>
+                  <div className="aspect-video w-full bg-white rounded-lg">
+                    {ogData?.imageUrl ? (
+                      <img className="w-full object-cover aspect-video" src={ogData?.imageUrl} />
+                    ) : (
+                      <div className="flex justify-center items-center h-full">
+                        <div className="flex flex-col justify-center items-center">
+                          <CircleAlert className="mb-4 text-red-400" size={60} />
+                          <p>Image doesn't exist</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+          {/* Whatsapp */}
+          {/* <section>
+            <Card>
+              <CardHeader>
+                <CardTitle className={cn("flex")}>
+                  <Facebook className="mr-2" />
+                  WhatsApp
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="max-w-[466px] border">
+                  <div className="aspect-video w-full bg-white">
+                    {ogData?.imageUrl ? (
+                      <img className="w-full object-cover aspect-video" src={ogData?.imageUrl} />
+                    ) : (
+                      <div className="flex justify-center items-center h-full">
+                        <div className="flex flex-col justify-center items-center">
+                          <CircleAlert className="mb-4 text-red-400" size={60} />
+                          <p>Image doesn't exist</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="break-words bg-[#f2f3f5] px-[12px] py-[10px] antialiased">
+                    <div className="overflow-hidden truncate whitespace-nowrap text-[12px] uppercase leading-[11px] text-[#606770]">
+                      {ogData?.url}
+                    </div>
+                    <div className="block h-[46px] max-h-[46px] select-none overflow-hidden break-words text-left">
+                      <div className="mt-[3px] truncate pt-[2px] text-[16px] font-semibold leading-[20px] text-[#1d2129]">
+                        {ogData?.title}
+                      </div>
+                      <div className="mt-[3px] block h-[18px] max-h-[80px] select-none overflow-hidden truncate whitespace-nowrap break-words text-left text-[14px] leading-[20px] text-[#606770]">
+                        {ogData?.metaDescription}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section> */}
         </div>
       )}
     </>

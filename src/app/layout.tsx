@@ -6,6 +6,8 @@ import Head from "next/head";
 import { Toaster } from "sonner";
 import { PHProvider } from "@/_analytics/providers";
 import dynamic from 'next/dynamic'
+import Navbar from "@/_components/Navbar";
+import Footer from "@/_components/Footer";
 // const inter = Inter({ subsets: ["latin"] });
 
 // export const runtime = "edge";
@@ -63,14 +65,17 @@ export default function RootLayout({
         <PostHogPageView />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen flex flex-col bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
-
-          {/* <img src="/images/meta-image.jpg" alt="" /> */}
-          {children}
+          <div className="flex flex-col flex-grow">
+            <Navbar />
+            {/* <img src="/images/meta-image.jpg" alt="" /> */}
+            {children}
+          </div>
           <Toaster />
+          <Footer />
         </body>
       </PHProvider>
 
