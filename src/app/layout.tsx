@@ -7,11 +7,13 @@ import { Toaster } from "sonner";
 import { PHProvider } from "@/_analytics/providers";
 import Navbar from "@/_components/Navbar";
 import Footer from "@/_components/Footer";
-import { Suspense } from "react";
+import dynamic from "next/dynamic";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
 
 export const metadata: Metadata = {
   title: "Social Preview",
@@ -19,6 +21,10 @@ export const metadata: Metadata = {
     "See how your links will look before you share them on social media. Get the perfect preview every time.",
 };
 
+
+const PostHogPageView = dynamic(() => import('@/_analytics/PostHogPageView'), {
+  ssr: false,
+})
 
 export default function RootLayout({
   children,
@@ -60,9 +66,8 @@ export default function RootLayout({
         >
           <div className="flex flex-col flex-grow">
             <Navbar />
-            <Suspense fallback={<p>Loading...</p>}>
-              {children}
-            </Suspense>
+            <PostHogPageView />
+            {children}
           </div>
           <Toaster />
           <Footer />
