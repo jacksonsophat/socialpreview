@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { PHProvider } from "@/_analytics/providers";
 import Navbar from "@/_components/Navbar";
 import Footer from "@/_components/Footer";
+import { Suspense } from "react";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -59,7 +60,9 @@ export default function RootLayout({
         >
           <div className="flex flex-col flex-grow">
             <Navbar />
-            {children}
+            <Suspense fallback={<p>Loading...</p>}>
+              {children}
+            </Suspense>
           </div>
           <Toaster />
           <Footer />
