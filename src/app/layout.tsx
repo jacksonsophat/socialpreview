@@ -64,9 +64,9 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
+          <PostHogPageView />
           <div className="flex flex-col flex-grow">
             <Navbar />
-            <PostHogPageView />
             {children}
           </div>
           <Toaster />
