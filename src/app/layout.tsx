@@ -5,15 +5,8 @@ import { cn } from "@/lib/utils";
 import Head from "next/head";
 import { Toaster } from "sonner";
 import { PHProvider } from "@/_analytics/providers";
-import dynamic from 'next/dynamic'
 import Navbar from "@/_components/Navbar";
 import Footer from "@/_components/Footer";
-// const inter = Inter({ subsets: ["latin"] });
-
-// export const runtime = "edge";
-// export const runtime = "edge";
-
-
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -24,10 +17,6 @@ export const metadata: Metadata = {
   description:
     "See how your links will look before you share them on social media. Get the perfect preview every time.",
 };
-
-const PostHogPageView = dynamic(() => import('@/_analytics/PostHogPageView'), {
-  ssr: false,
-})
 
 
 export default function RootLayout({
@@ -60,9 +49,8 @@ export default function RootLayout({
           <meta name="twitter:image:type" content="<generated>" />
           <meta name="twitter:image:width" content="<generated>" />
           <meta name="twitter:image:height" content="<generated>" />
-
         </Head>
-        <PostHogPageView />
+        {/* <PostHogPageView /> */}
         <body
           className={cn(
             "min-h-screen flex flex-col bg-background font-sans antialiased",
@@ -71,7 +59,6 @@ export default function RootLayout({
         >
           <div className="flex flex-col flex-grow">
             <Navbar />
-            {/* <img src="/images/meta-image.jpg" alt="" /> */}
             {children}
           </div>
           <Toaster />

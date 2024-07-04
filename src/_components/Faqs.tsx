@@ -5,6 +5,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { cn } from '@/lib/utils'
 
 
 
@@ -47,7 +48,7 @@ function Faqs() {
                     {
                         faqsArray.map((faq, index) => (
                             <AccordionItem key={index} value={`item-${index}`}>
-                                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                                <AccordionTrigger className={cn('text-left')}>{faq.question}</AccordionTrigger>
                                 <AccordionContent>
                                     <p className='text-muted-foreground'>
                                         {faq.answer}
